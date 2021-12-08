@@ -34,6 +34,7 @@ func main() {
 		AllowedOrigins:   []string{"https://managemesite.netlify.app"},
 		AllowCredentials: true,
 		AllowedMethods:   []string{"GET", "PUT", "POST"},
+		AllowedHeaders:   []string{"*"},
 	})
 
 	handler := c.Handler(r)
