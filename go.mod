@@ -1,6 +1,6 @@
 module github.com/kendricko-adrio/to-do-backend
 
-go 1.17
+go 1.15
 
 require (
 	gorm.io/driver/postgres v1.2.2
