@@ -29,18 +29,18 @@ func main() {
 	// migrate.Migrate()
 	// r.Use(middleware.CorsMiddleware)
 
-	// c := cors.New(cors.Options{
-	// 	// AllowedOrigins: []string{"http://localhost:3000"},
-	// 	AllowedOrigins:   []string{"https://managemesite.netlify.app"},
-	// 	AllowCredentials: true,
-	// 	AllowedMethods:   []string{"GET", "PUT", "POST", "PATCH", "OPTION"},
-	// 	AllowedHeaders:   []string{"Content-Type", "Accept", "Authorization", "Content-Length", "Accept-Encoding"},
-	// })
+	c := cors.New(cors.Options{
+		// AllowedOrigins: []string{"http://localhost:3000"},
+		AllowedOrigins:   []string{"https://managemesite.netlify.app"},
+		AllowCredentials: true,
+		AllowedMethods:   []string{"GET", "PUT", "POST", "PATCH", "OPTION"},
+		AllowedHeaders:   []string{"Content-Type", "Accept", "Authorization", "Content-Length", "Accept-Encoding"},
+	})
 
-	handler := cors.Default().Handler(r)
+	// handler := cors.Default().Handler(r)
 
-	// handler := c.Handler(r)
-	// http.Handle("/", r)
+	handler := c.Handler(r)
+	http.Handle("/", r)
 	if err := http.ListenAndServe("localhost:1234", handler); err != nil {
 		fmt.Print(err)
 	}
