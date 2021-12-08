@@ -37,7 +37,9 @@ func main() {
 		AllowedHeaders:   []string{"Content-Type", "Accept", "Authorization", "Content-Length", "Accept-Encoding"},
 	})
 
-	handler := c.Handler(r)
+	handler := cors.Default().Handler(r)
+
+	// handler := c.Handler(r)
 	// http.Handle("/", r)
 	if err := http.ListenAndServe("localhost:1234", handler); err != nil {
 		fmt.Print(err)
