@@ -40,8 +40,8 @@ func main() {
 	// handler := cors.Default().Handler(r)
 
 	handler := c.Handler(r)
-	http.Handle("/", r)
-	if err := http.ListenAndServe("localhost:1234", handler); err != nil {
+	http.Handle("/", handler)
+	if err := http.ListenAndServe("manageme123.herokuapp.com:0", handler); err != nil {
 		fmt.Print(err)
 	}
 
