@@ -33,7 +33,7 @@ func main() {
 		// AllowedOrigins: []string{"http://localhost:3000"},
 		AllowedOrigins:   []string{"https://managemesite.netlify.app"},
 		AllowCredentials: true,
-		AllowedMethods:   []string{"GET", "PUT", "POST", "PATCH"},
+		AllowedMethods:   []string{"GET", "PUT", "POST", "PATCH", "OPTION"},
 		AllowedHeaders:   []string{"Content-Type", "Accept", "Authorization", "Content-Length", "Accept-Encoding"},
 	})
 
