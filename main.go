@@ -6,7 +6,6 @@ import (
 
 	"github.com/gorilla/mux"
 	"github.com/kendricko-adrio/to-do-backend/controller"
-	"github.com/kendricko-adrio/to-do-backend/migrate"
 	"github.com/rs/cors"
 )
 
@@ -27,7 +26,7 @@ func main() {
 	r.HandleFunc("/schedules", controller.GetAllUserSchedule).Methods(http.MethodGet)
 	r.HandleFunc("/schedule/add", controller.AddSchedule).Methods(http.MethodPost)
 	// r.HandleFunc("/user/{id}", controller.GetUserById).Methods(http.MethodGet)
-	migrate.Migrate()
+	// migrate.Migrate()
 	// r.Use(middleware.CorsMiddleware)
 	c := cors.New(cors.Options{
 		// AllowedOrigins:   []string{"http://localhost:3000"},
