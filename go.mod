@@ -2,11 +2,9 @@ module github.com/kendricko-adrio/to-do-backend
 
 go 1.17
 
-require gorm.io/driver/postgres v1.2.2
-
-require github.com/rs/cors v1.8.0 // indirect
-
 require (
+	gorm.io/driver/postgres v1.2.2
+	github.com/rs/cors v1.8.0 // indirect
 	github.com/dgrijalva/jwt-go v3.2.0+incompatible
 	github.com/gorilla/mux v1.8.0 // indirect
 	github.com/jackc/chunkreader/v2 v2.0.1 // indirect

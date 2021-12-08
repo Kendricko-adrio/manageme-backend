@@ -28,9 +28,10 @@ func main() {
 	// r.HandleFunc("/user/{id}", controller.GetUserById).Methods(http.MethodGet)
 	// migrate.Migrate()
 	// r.Use(middleware.CorsMiddleware)
+
 	c := cors.New(cors.Options{
-		// AllowedOrigins:   []string{"http://localhost:3000"},
-		AllowedOrigins:   []string{"https://managemesite.netlify.app"},
+		AllowedOrigins: []string{"http://localhost:3000"},
+		// AllowedOrigins:   []string{"https://managemesite.netlify.app"},
 		AllowCredentials: true,
 		AllowedMethods:   []string{"GET", "PUT", "POST"},
 	})
