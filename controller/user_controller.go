@@ -37,7 +37,6 @@ func Login(w http.ResponseWriter, r *http.Request) {
 		Expires:  time.Now().Add(time.Hour * 24),
 		HttpOnly: true,
 		Path:     "/",
-		Domain:   "",
 		SameSite: http.SameSiteNoneMode,
 		Secure:   true,
 	}
