@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"net/http"
+	"os"
 
 	"github.com/gorilla/mux"
 	"github.com/kendricko-adrio/to-do-backend/controller"
@@ -30,18 +31,23 @@ func main() {
 	// r.Use(middleware.CorsMiddleware)
 
 	c := cors.New(cors.Options{
-		// AllowedOrigins: []string{"http://localhost:3000"},
-		AllowedOrigins:   []string{"https://managemesite.netlify.app"},
+		AllowedOrigins: []string{"http://localhost:3000", "https://managemesite.netlify.app"},
+		// AllowedOrigins:   []string{},
 		AllowCredentials: true,
 		AllowedMethods:   []string{"GET", "PUT", "POST", "PATCH", "OPTION"},
-		AllowedHeaders:   []string{"Content-Type", "Accept", "Authorization", "Content-Length", "Accept-Encoding"},
+		AllowedHeaders:   []string{"Content-Type", "Accept", "Authorization", "Content-Length", "Accept-Encoding", "*"},
 	})
 
 	// handler := cors.Default().Handler(r)
 
 	handler := c.Handler(r)
 	http.Handle("/", r)
-	if err := http.ListenAndServe(":80", handler); err != nil {
+	port := os.Getenv("PORT")
+	if port == "" {
+		port = "1234" // Default port if not specified
+	}
+
+	if err := http.ListenAndServe(":"+port, handler); err != nil {
 		fmt.Print(err)
 	}
 
